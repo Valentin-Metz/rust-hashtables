@@ -1,0 +1,18 @@
+[package]
+name = "hashtables"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "hashtables"
+
+[dependencies]
+rand = "0.8.5"
+parking_lot = "0.12.1"
+criterion = { version = "0.4.0", features = ["real_blackbox", "html_reports"] }
+rayon = "1.7.0"
+dashmap = { version = "5.4.0", features = ["rayon"] }
+
+[[bench]]
+name = "benchmark"
+harness = false
