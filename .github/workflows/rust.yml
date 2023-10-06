@@ -27,3 +27,15 @@ jobs:
         run: cargo build --release --verbose
       - name: Run tests release
         run: cargo test --release --verbose
+
+  benchmark-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy benchmark pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target/criterion
+    permissions:
+      contents: write
